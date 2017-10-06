@@ -1,7 +1,6 @@
 package main.controller;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import main.model.TestAOPBean;
 import main.model.TestBean;
 import main.model.TestModel;
 
@@ -19,6 +19,8 @@ public class TestController {
 	private TestBean test;
 	@Inject
 	private TestModel testm;
+	@Inject
+	private TestAOPBean aop;
 	
 	@RequestMapping("/TEST")
 	@ResponseBody
@@ -30,6 +32,13 @@ public class TestController {
 	@ResponseBody
 	public String testBean(){
 		return test.getTest();
+	}
+	
+	@RequestMapping("/TESTAOP")
+	@ResponseBody
+	public String testAOP(){
+		aop.access();
+		return "CHECK YOUR SERVER OUTPUT";
 	}
 	
 	@RequestMapping("/TESTPAGE")
@@ -51,6 +60,7 @@ public class TestController {
 		return "testRequest";
 	}
 	
+
 	
 
 }
