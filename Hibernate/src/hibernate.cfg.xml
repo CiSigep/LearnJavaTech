@@ -28,7 +28,8 @@
       <property name="hibernate.hbm2ddl.auto">create</property>
       
       <!-- List of XML mapping files -->
-      <mapping resource = "model/TestObject.hbm.xml"/>
+      <!--<mapping resource = "model/TestObject.hbm.xml"/> -->
+      <mapping class="model.TestObject" />
       
    </session-factory>
 </hibernate-configuration>
