@@ -18,6 +18,8 @@
       jdbc:oracle:thin:@localhost:1521:xe
       </property>
       
+      <property name="show_sql">true</property>
+      
       <property name = "hibernate.connection.username">
       hibernate
       </property>
@@ -28,8 +30,12 @@
       <property name="hibernate.hbm2ddl.auto">create</property>
       
       <!-- List of XML mapping files -->
-      <!--<mapping resource = "model/TestObject.hbm.xml"/> -->
+<!--       <mapping resource = "model/TestObject.hbm.xml"/>
+      <mapping resource = "model/TestLinkedObject.hbm.xml"/>
+      <mapping resource = "model/TestLinkedMany.hbm.xml"/> -->
       <mapping class="model.TestObject" />
+      <mapping class="model.TestLinkedObject" />
+      <mapping class="model.TestLinkedMany" />
       
    </session-factory>
 </hibernate-configuration>

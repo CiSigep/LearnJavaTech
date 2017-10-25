@@ -12,5 +12,10 @@
       
       <property name = "test" column = "test" type = "string"/>
       
+      <one-to-one name="tlo" class="model.TestLinkedObject" cascade="save-update" fetch="join"></one-to-one>
+      <bag name="many" table="TESTMANY" inverse="false" cascade="all">
+      	<key column="toid" />
+      	<one-to-many class="model.TestLinkedMany"/>
+      </bag>
    </class>
 </hibernate-mapping>
