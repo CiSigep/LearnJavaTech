@@ -4,14 +4,13 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-   <class name = "model.TestLinkedMany" table = "TESTMANY">
+   <class name = "model.TestLinkedOther" table = "TESTOTHER">
       
-      <id name = "tlmid" type = "int" column = "tlmid">
+      <id name = "tlotid" type = "int" column = "tlotid">
          <generator class="increment"/>
       </id>
       
-      <property name = "val" column = "val" type = "string"/>
+      <property name = "value" column = "value" type = "string"/>
       
-      <many-to-one name="tlj" class="model.TestLinkedJunction" cascade="all"></many-to-one>
    </class>
 </hibernate-mapping>

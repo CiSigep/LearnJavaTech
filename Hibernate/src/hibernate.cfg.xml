@@ -32,10 +32,14 @@
       <!-- List of XML mapping files -->
 <!--       <mapping resource = "model/TestObject.hbm.xml"/>
       <mapping resource = "model/TestLinkedObject.hbm.xml"/>
-      <mapping resource = "model/TestLinkedMany.hbm.xml"/> -->
+      <mapping resource = "model/TestLinkedMany.hbm.xml"/>
+      <mapping resource = "model/TestLinkedJunction.hbm.xml"/>
+      <mapping resource = "model/TestLinkedOther.hbm.xml"/> -->
       <mapping class="model.TestObject" />
       <mapping class="model.TestLinkedObject" />
       <mapping class="model.TestLinkedMany" />
+      <mapping class="model.TestLinkedJunction" />
+      <mapping class="model.TestLinkedOther" />
       
    </session-factory>
 </hibernate-configuration>

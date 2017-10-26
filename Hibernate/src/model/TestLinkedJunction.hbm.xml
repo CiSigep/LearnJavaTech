@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "model.TestLinkedJunction" table = "TESTJUNCTION">
+      
+      <id name = "tljid" type = "int" column = "tljid">
+         <generator class="increment"/>
+      </id>
+      
+      <bag name="tlm" table="TESTMANY">
+      	<key column="tljid" />
+      	<one-to-many class="model.TestLinkedMany"/>
+      </bag>
+      <bag name="tlot" table="TESTOTHER" inverse="false" cascade="all">
+      	<key column="tljid" />
+      	<one-to-many class="model.TestLinkedOther"/>
+      </bag>
+   </class>
+</hibernate-mapping>

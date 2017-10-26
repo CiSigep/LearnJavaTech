@@ -11,8 +11,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import model.TestLinkedJunction;
 import model.TestLinkedMany;
 import model.TestLinkedObject;
+import model.TestLinkedOther;
 import model.TestObject;
 import util.HibernateSessionFactoryBuilder;
 
@@ -38,8 +40,24 @@ public class Main {
 		List<TestLinkedMany> tlm = new ArrayList<TestLinkedMany>();
 		tlm.add(new TestLinkedMany());
 		tlm.add(new TestLinkedMany());
+		
+		TestLinkedJunction tlj = new TestLinkedJunction();
+		List<TestLinkedOther> tlot = new ArrayList<TestLinkedOther>();
+		tlot.add(new TestLinkedOther());
+		tlot.add(new TestLinkedOther());
+		
+		tlot.get(0).setValue("One Other");
+		tlot.get(1).setValue("Two Other");
+		
 		tlm.get(0).setVal("Hi");
 		tlm.get(1).setVal("Hello");
+		
+		for(TestLinkedMany tl : tlm)
+			tl.setTlj(tlj);
+		
+		tlj.setTlm(tlm);
+		tlj.setTlot(tlot);
+		
 		to.setMany(tlm);
 		
 		s.saveOrUpdate(to);
@@ -59,8 +77,12 @@ public class Main {
 		to = s.createQuery(cq).getSingleResult();
 		
 		System.out.println(to.getTlo().getValue());
-		for(TestLinkedMany tl : to.getMany())
+		for(TestLinkedMany tl : to.getMany()){
 			System.out.println(tl.getVal());
+			
+			for(TestLinkedOther tloth : tl.getTlj().getTlot())
+				System.out.println(tloth.getValue());
+		}
 		
 		s.close();
 		System.out.println("Done");
