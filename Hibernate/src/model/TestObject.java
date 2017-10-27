@@ -26,7 +26,7 @@ public class TestObject {
 	@JoinColumn(name="tloid")
 	private TestLinkedObject tlo;
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="id")
+	@JoinColumn(name="toid")
 	private List<TestLinkedMany> many;
 	
 	

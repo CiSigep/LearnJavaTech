@@ -12,6 +12,9 @@
       
       <property name = "val" column = "val" type = "string"/>
       
-      <many-to-one name="tlj" class="model.TestLinkedJunction" cascade="all"></many-to-one>
+      <bag name="tlj" table="TESTJUNCTION" cascade="all">
+      	<key column="tlmid" />
+      	<one-to-many class="model.TestLinkedJunction"/>
+      </bag>
    </class>
 </hibernate-mapping>

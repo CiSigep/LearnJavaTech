@@ -42,21 +42,31 @@ public class Main {
 		tlm.add(new TestLinkedMany());
 		
 		TestLinkedJunction tlj = new TestLinkedJunction();
-		List<TestLinkedOther> tlot = new ArrayList<TestLinkedOther>();
-		tlot.add(new TestLinkedOther());
-		tlot.add(new TestLinkedOther());
+		TestLinkedOther tlot = new TestLinkedOther();
 		
-		tlot.get(0).setValue("One Other");
-		tlot.get(1).setValue("Two Other");
-		
-		tlm.get(0).setVal("Hi");
-		tlm.get(1).setVal("Hello");
-		
-		for(TestLinkedMany tl : tlm)
-			tl.setTlj(tlj);
-		
-		tlj.setTlm(tlm);
+		tlot.setVal("One Other");
+		tlot.setTlj(new ArrayList<TestLinkedJunction>());
+		tlot.getTlj().add(tlj);
 		tlj.setTlot(tlot);
+		tlm.get(0).setTlj(new ArrayList<TestLinkedJunction>());
+		tlj.setTlm(tlm.get(0));
+		tlm.get(0).getTlj().add(tlj);
+		tlm.get(0).setVal("Hi");
+		
+		tlot = new TestLinkedOther();
+		tlj = new TestLinkedJunction();
+		
+		
+		tlot.setVal("Two Other");
+		tlot.setTlj(new ArrayList<TestLinkedJunction>());
+		tlot.getTlj().add(tlj);
+		tlj.setTlot(tlot);
+		tlm.get(1).setTlj(new ArrayList<TestLinkedJunction>());
+		tlj.setTlm(tlm.get(0));
+		tlm.get(1).getTlj().add(tlj);
+		tlm.get(1).getTlj().add(tlm.get(0).getTlj().get(0));
+		tlm.get(0).getTlj().add(tlj);
+		tlm.get(1).setVal("Hello");
 		
 		to.setMany(tlm);
 		
@@ -80,8 +90,8 @@ public class Main {
 		for(TestLinkedMany tl : to.getMany()){
 			System.out.println(tl.getVal());
 			
-			for(TestLinkedOther tloth : tl.getTlj().getTlot())
-				System.out.println(tloth.getValue());
+			for(TestLinkedJunction tlju : tl.getTlj())
+				System.out.println(tlju.getTlot().getVal());
 		}
 		
 		s.close();

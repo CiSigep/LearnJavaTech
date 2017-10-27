@@ -10,13 +10,7 @@
          <generator class="increment"/>
       </id>
       
-      <bag name="tlm" table="TESTMANY">
-      	<key column="tljid" />
-      	<one-to-many class="model.TestLinkedMany"/>
-      </bag>
-      <bag name="tlot" table="TESTOTHER" inverse="false" cascade="all">
-      	<key column="tljid" />
-      	<one-to-many class="model.TestLinkedOther"/>
-      </bag>
+      <many-to-one name="tlm" class="model.TestLinkedMany" cascade="all"><column name="tlmid"/> </many-to-one>
+      <many-to-one name="tlot" class="model.TestLinkedOther" cascade="all"><column name="tlotid"></column></many-to-one>
    </class>
 </hibernate-mapping>

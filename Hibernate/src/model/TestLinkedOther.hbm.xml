@@ -10,7 +10,12 @@
          <generator class="increment"/>
       </id>
       
-      <property name = "value" column = "value" type = "string"/>
+      <property name = "val" column = "val" type = "string"/>
+      
+      <bag name="tlj" table="TESTJUNCTION" cascade="all">
+      	<key column="tlotid" />
+      	<one-to-many class="model.TestLinkedJunction"/>
+      </bag>
       
    </class>
 </hibernate-mapping>

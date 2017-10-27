@@ -1,13 +1,11 @@
 package model;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,13 +16,13 @@ public class TestLinkedJunction {
 	@GeneratedValue
 	private int tljid;
 	
-	@OneToMany
-	@JoinColumn(name = "tlm")
-	private List<TestLinkedMany> tlm;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tlmid")
+	private TestLinkedMany tlm;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tlot")
-	private List<TestLinkedOther> tlot;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "tlotid")
+	private TestLinkedOther tlot;
 
 	public int getTljid() {
 		return tljid;
@@ -34,20 +32,22 @@ public class TestLinkedJunction {
 		this.tljid = tljid;
 	}
 
-	public List<TestLinkedMany> getTlm() {
+	public TestLinkedMany getTlm() {
 		return tlm;
 	}
 
-	public void setTlm(List<TestLinkedMany> tlm) {
+	public void setTlm(TestLinkedMany tlm) {
 		this.tlm = tlm;
 	}
 
-	public List<TestLinkedOther> getTlot() {
+	public TestLinkedOther getTlot() {
 		return tlot;
 	}
 
-	public void setTlot(List<TestLinkedOther> tlot) {
+	public void setTlot(TestLinkedOther tlot) {
 		this.tlot = tlot;
 	}
+
+
 
 }

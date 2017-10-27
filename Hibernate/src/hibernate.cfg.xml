@@ -19,6 +19,7 @@
       </property>
       
       <property name="show_sql">true</property>
+      <property name="format_sql">true</property>
       
       <property name = "hibernate.connection.username">
       hibernate
@@ -30,16 +31,16 @@
       <property name="hibernate.hbm2ddl.auto">create</property>
       
       <!-- List of XML mapping files -->
-<!--       <mapping resource = "model/TestObject.hbm.xml"/>
+      <mapping resource = "model/TestObject.hbm.xml"/>
       <mapping resource = "model/TestLinkedObject.hbm.xml"/>
       <mapping resource = "model/TestLinkedMany.hbm.xml"/>
       <mapping resource = "model/TestLinkedJunction.hbm.xml"/>
-      <mapping resource = "model/TestLinkedOther.hbm.xml"/> -->
-      <mapping class="model.TestObject" />
+      <mapping resource = "model/TestLinkedOther.hbm.xml"/>
+<!--       <mapping class="model.TestObject" />
       <mapping class="model.TestLinkedObject" />
       <mapping class="model.TestLinkedMany" />
       <mapping class="model.TestLinkedJunction" />
-      <mapping class="model.TestLinkedOther" />
+      <mapping class="model.TestLinkedOther" /> -->
       
    </session-factory>
 </hibernate-configuration>

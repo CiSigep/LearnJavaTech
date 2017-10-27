@@ -1,9 +1,14 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,8 +19,12 @@ public class TestLinkedOther {
 	@GeneratedValue
 	private int tlotid;
 	
-	@Column(name = "value")
-	private String value;
+	@Column(name = "val")
+	private String val;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="tlotid")
+	private List<TestLinkedJunction> tlj;
 
 	public int getTlotid() {
 		return tlotid;
@@ -25,12 +34,20 @@ public class TestLinkedOther {
 		this.tlotid = tlotid;
 	}
 
-	public String getValue() {
-		return value;
+	public String getVal() {
+		return val;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setVal(String val) {
+		this.val = val;
+	}
+
+	public List<TestLinkedJunction> getTlj() {
+		return tlj;
+	}
+
+	public void setTlj(List<TestLinkedJunction> tlj) {
+		this.tlj = tlj;
 	}
 	
 	
