@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Properties>
+		<Property name="log-location">log</Property>
+	</Properties>
+	
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%-5level] - %d{dd MMM yyyy HH:mm:ss} - %msg%n"></PatternLayout>
+		</Console>
+		<File name="file" fileName="${log-location}/app.log">
+			<PatternLayout pattern="[%-5level] - %d{dd MMM yyyy HH:mm:ss} - %msg%n"></PatternLayout>
+		</File>
+	</Appenders>
+	
+	<Loggers>
+		<Root level="debug">
+			<Appender-Ref ref="console"></Appender-Ref>
+			<Appender-Ref ref="file"></Appender-Ref>
+		</Root>
+	</Loggers>
+
+</Configuration>
