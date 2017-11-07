@@ -7,6 +7,14 @@
 		<action name="index">
 			<result>/resource/page/index.jsp</result>
 		</action>
+		
+		<action name="input">
+			<result>/resource/page/input.jsp</result>
+		</action>
+		
+		<action name="output" class="action.OutputAction">
+			<result name="input">/resource/page/output.jsp</result>
+		</action>
 	
 	</package>
 
