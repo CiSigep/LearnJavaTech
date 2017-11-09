@@ -1,13 +1,22 @@
 package action;
 
+import com.opensymphony.xwork2.ActionSupport;
+
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+
 import data.Input;
 
-public class OutputAction {
+
+@Result(name = "output", location = "/WEB-INF/resource/page/output.jsp")
+public class OutputAction extends ActionSupport{
 	
 	private Input input;
 	
+	@Action(value = "/output")
 	public String execute(){
-		return "input";
+		return "output";
+		//return "input";
 	}
 
 	public Input getInput() {
