@@ -4,18 +4,29 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="struts_2" extends="struts-default">
-		<!-- <action name="index">
+	
+	    <interceptors>
+		    <interceptor name="customInterceptor" class="interceptors.CustomInterceptor"></interceptor>
+		</interceptors>
+		
+		<!-- 
+		<action name="index">
+		    <interceptor-ref name = "customInterceptor" />
+            <interceptor-ref name = "defaultStack"/>
 			<result>/WEB-INF/resource/page/index.jsp</result>
 		</action>
 		
 		<action name="input">
+		    <interceptor-ref name = "customInterceptor" />
+            <interceptor-ref name = "defaultStack"/>
 			<result>/WEB-INF/resource/page/input.jsp</result>
 		</action>
 		
 		<action name="output" class="action.OutputAction">
-			<result name="input">/WEB-INF/resource/page/output.jsp</result>
+			<result name="output">/WEB-INF/resource/page/output.jsp</result>
 		</action> -->
-	
 	</package>
+	
+	<constant name="struts.convention.default.parent.package" value="struts_2"/>
 
 </struts>

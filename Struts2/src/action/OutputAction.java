@@ -16,7 +16,7 @@ public class OutputAction extends ActionSupport{
 	@Action(value = "/output")
 	public String execute(){
 		return "output";
-		//return "input";
+		
 	}
 
 	public Input getInput() {

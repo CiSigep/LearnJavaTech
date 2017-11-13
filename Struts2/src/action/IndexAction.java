@@ -3,9 +3,15 @@ package action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.InterceptorRef;
+import org.apache.struts2.convention.annotation.InterceptorRefs;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
+@InterceptorRefs({
+	@InterceptorRef(value = "customInterceptor"),
+	@InterceptorRef(value = "defaultStack")
+})
 @Results({
 	@Result(name = "index", location = "/WEB-INF/resource/page/index.jsp"),
 	@Result(name = "input", location = "/WEB-INF/resource/page/input.jsp")
@@ -13,7 +19,7 @@ import org.apache.struts2.convention.annotation.Results;
 public class IndexAction extends ActionSupport {
 	
 	
-	@Action(value = "/index")
+	@Action(value = "index")
 	public String execute(){
 		return "index";
 	}
