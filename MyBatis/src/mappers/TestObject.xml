@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TestObject">
+	<resultMap type="TestObject" id="result">
+		<result property="id" column="ID"/>
+		<result property="testValue" column="TESTVALUE"/>
+	</resultMap>
+
+
+	<select id="selectObject"
+	        parameterType="int"
+	        statementType="PREPARED"
+	        resultMap="result">
+		SELECT * FROM TESTOBJECT WHERE ID = #{id}
+	</select>
+	<insert id="insertObject"
+	        parameterType="TestObject"
+	        statementType="PREPARED">
+		INSERT INTO TESTOBJECT(ID, TESTVALUE) VALUES (#{id}, #{testValue})
+	</insert>
+	<update id="updateObject"
+	        parameterType="TestObject"
+	        statementType="PREPARED">
+		UPDATE TESTOBJECT SET TESTVALUE = #{testValue} WHERE ID = #{id}
+	</update>
+	<delete id="deleteObject"
+	        parameterType="int"
+	        statementType="PREPARED">
+		DELETE FROM TESTOBJECT WHERE ID = #{id}
+	</delete>
+
+
+</mapper>
