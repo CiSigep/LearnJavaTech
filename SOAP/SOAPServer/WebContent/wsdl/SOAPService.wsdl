@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.sample" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.sample" xmlns:intf="http://service.sample" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.sample" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="Hello">
+    <complexType>
+     <sequence>
+      <element name="input" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="HelloResponse">
+    <complexType>
+     <sequence>
+      <element name="HelloReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="HelloRequest">
+
+      <wsdl:part element="impl:Hello" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="HelloResponse">
+
+      <wsdl:part element="impl:HelloResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SOAPService">
+
+      <wsdl:operation name="Hello">
+
+         <wsdl:input message="impl:HelloRequest" name="HelloRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:HelloResponse" name="HelloResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SOAPServiceSoapBinding" type="impl:SOAPService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="Hello">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="HelloRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="HelloResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SOAPServiceService">
+
+      <wsdl:port binding="impl:SOAPServiceSoapBinding" name="SOAPService">
+
+         <wsdlsoap:address location="http://localhost:7001/SOAPServer/services/SOAPService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
