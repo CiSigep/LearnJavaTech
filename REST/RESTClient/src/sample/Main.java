@@ -17,11 +17,15 @@ public class Main {
 		Message m = jc.getMessage();
 		
 		System.out.println(m.getMsg());
+		System.out.println(m.getMli().size() + ": " + m.getMli().get(0).getItem());
 		
 		Message send = new Message();
 		send.setMsg("Hi from client");
 		
 		Message rec = jc.postMessage(send);
+		System.out.println(rec.getMsg());
+		System.out.println(rec.getMli().size() + ": " + rec.getMli().get(0).getItem());
+		System.out.println(rec.getMli().get(1).getItem());
 		
 		System.out.println(rec.getMsg());
 		

@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import sample.data.Message;
+import sample.data.MessageListItem;
 
 public class RESTServlet extends HttpServlet {
 
@@ -33,6 +34,7 @@ public class RESTServlet extends HttpServlet {
 		Message msg = new Message();
 		
 		msg.setMsg("Hello Client");
+		msg.getMli().add(new MessageListItem());
 		
 		resp.getWriter().write(ow.writeValueAsString(msg));
 		resp.setContentType("application/json");
@@ -52,6 +54,8 @@ public class RESTServlet extends HttpServlet {
 		
 		Message ms = new Message();
 		ms.setMsg("Your Message: " + rec.getMsg());
+		ms.getMli().add(new MessageListItem());
+		ms.getMli().add(new MessageListItem(rec.getMsg()));
 		
 		resp.getWriter().write(ow.writeValueAsString(ms));
 		resp.setContentType("application/json");
