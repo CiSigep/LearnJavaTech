@@ -44,7 +44,7 @@ public class SOAPServiceProxy implements sample.service.SOAPService {
     return sOAPService;
   }
   
-  public java.lang.String hello(java.lang.String input) throws java.rmi.RemoteException{
+  public sample.data.Message hello(sample.data.Message input) throws java.rmi.RemoteException{
     if (sOAPService == null)
       _initSOAPServiceProxy();
     return sOAPService.hello(input);

@@ -8,5 +8,5 @@
 package sample.service;
 
 public interface SOAPService extends java.rmi.Remote {
-    public java.lang.String hello(java.lang.String input) throws java.rmi.RemoteException;
+    public sample.data.Message hello(sample.data.Message input) throws java.rmi.RemoteException;
 }

@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://service.sample" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.sample" xmlns:intf="http://service.sample" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://service.sample" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.sample" xmlns:intf="http://service.sample" xmlns:tns1="http://data.sample" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://service.sample" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="Hello">
+   <import namespace="http://data.sample"/>
+   <element name="hello">
     <complexType>
      <sequence>
-      <element name="input" type="xsd:string"/>
+      <element name="input" type="tns1:Message"/>
      </sequence>
     </complexType>
    </element>
-   <element name="HelloResponse">
+   <element name="helloResponse">
     <complexType>
      <sequence>
-      <element name="HelloReturn" type="xsd:string"/>
+      <element name="helloReturn" type="tns1:Message"/>
      </sequence>
     </complexType>
    </element>
   </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://data.sample" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Message">
+    <sequence>
+     <element name="msg" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
  </wsdl:types>
 
-   <wsdl:message name="HelloRequest">
+   <wsdl:message name="helloRequest">
 
-      <wsdl:part element="impl:Hello" name="parameters">
+      <wsdl:part element="impl:hello" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="HelloResponse">
+   <wsdl:message name="helloResponse">
 
-      <wsdl:part element="impl:HelloResponse" name="parameters">
+      <wsdl:part element="impl:helloResponse" name="parameters">
 
       </wsdl:part>
 
@@ -39,13 +47,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="SOAPService">
 
-      <wsdl:operation name="Hello">
+      <wsdl:operation name="hello">
 
-         <wsdl:input message="impl:HelloRequest" name="HelloRequest">
+         <wsdl:input message="impl:helloRequest" name="helloRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:HelloResponse" name="HelloResponse">
+         <wsdl:output message="impl:helloResponse" name="helloResponse">
 
        </wsdl:output>
 
@@ -57,17 +65,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="Hello">
+      <wsdl:operation name="hello">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="HelloRequest">
+         <wsdl:input name="helloRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="HelloResponse">
+         <wsdl:output name="helloResponse">
 
             <wsdlsoap:body use="literal"/>
 
