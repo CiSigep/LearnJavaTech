@@ -5,3 +5,11 @@
 	-fx-border-width: 3;
 	-fx-border-style: dashed;
 }
+
+.backgroundRed {
+	-fx-background-color: red;
+}
+
+.backgroundBlue{
+	-fx-background-color: blue;
+}

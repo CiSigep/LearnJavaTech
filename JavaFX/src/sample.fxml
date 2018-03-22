@@ -10,7 +10,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
+
+<!-- This build comes from "Complete Java MasterClass" on Udemy -->
 <!-- GridPane build -->
 <!-- <GridPane fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml" alignment="top_center" hgap="10" vgap="10" gridLinesVisible="false">
 
@@ -28,12 +35,21 @@
 	<Button text="Button Four That is long" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 	<Button text="Button Five" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
 </GridPane> -->
-<BorderPane fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml" >
+<!-- <BorderPane fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml" >
 	<top>
 		<Label text="Top Label" alignment="center" styleClass="dashedBorder" BorderPane.alignment="CENTER"/>
 	</top>
+	<left>
+		<Label text="Left Label" alignment="center"/>
+	</left>
+	<right>
+		<Label text="Right Label" alignment="center"/>
+	</right>
+	<center>
+		<Label text="Center Label"/>
+	</center>
 	<bottom>
-		<HBox spacing="10" alignment="top_right"><!-- styleClass="dashedBorder"> -->
+		<HBox spacing="10" alignment="top_right">styleClass="dashedBorder">
 			<padding>
 				<Insets bottom="10" right="10"/>
 			</padding>
@@ -46,6 +62,46 @@
 	</bottom>
 	
 	<stylesheets>
-		<URL value="@./application.css"/>
+		<URL value="@application.css"/>
 	</stylesheets>
-</BorderPane>
+</BorderPane> -->
+
+<!-- <TilePane fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml" >
+	<Button text="One"/>
+	<Button text="Two"/>
+	<Button text="Three"/>
+	<Button text="Four"/>
+	<Button text="Five"/>
+	<Button text="Six"/>
+	<Button text="Seven"/>
+	<Button text="Eight"/>
+	<Button text="Nine"/>
+	<Button text="Ten"/>
+</TilePane> -->
+
+<!-- <StackPane fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml">
+
+	<Button text="Button" styleClass="backgroundRed"/>
+	<Label text="Label" styleClass="backgroundBlue"/>
+	
+		<stylesheets>
+		<URL value="@application.css"/>
+	</stylesheets>
+</StackPane> -->
+
+<GridPane fx:controller="application.Controller"  xmlns:fx="httpL//javafx.com/fxml" hgap="10" vgap="10" alignment="center">
+	<Button text="Click Here" GridPane.rowIndex="0" GridPane.columnIndex="0">
+		<graphic>
+			<ImageView>
+				<Image url="@/toolbarButtonGraphics/general/TipOfTheDay24.gif"></Image>
+			</ImageView>
+		</graphic>
+	</Button>
+	<Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="Label">
+		<graphic>
+			<ImageView>
+				<Image url="@/toolbarButtonGraphics/general/Information24.gif"></Image>
+			</ImageView>
+		</graphic>
+	</Label>
+</GridPane>
