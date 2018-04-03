@@ -199,6 +199,8 @@
 	<TextField fx:id="inputField" GridPane.rowIndex="0" GridPane.columnIndex="0" onKeyReleased="#onKeyReleased"/>
 	<Button fx:id="bOne" text="Click Me" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#onButtonClicked" disable="true"/>
 	<Button fx:id="bTwo" text="Click Me Too" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#onButtonClicked" disable="true"/>
-
+	
+	<CheckBox fx:id="cBox" text="Clear field after clicking button:" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" onAction="#handleChange" />
+	<Label fx:id="lbl" text="Nothing" GridPane.rowIndex="3" GridPane.columnIndex="0" />
 </GridPane>
 
