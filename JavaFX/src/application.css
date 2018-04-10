@@ -13,3 +13,15 @@
 .backgroundBlue{
 	-fx-background-color: blue;
 }
+
+.backgroundGreen{
+	-fx-background-color: green;
+}
+
+.backgroundYellow{
+	-fx-background-color: yellow;
+}
+
+.center {
+	-fx-alignment: center;
+}
